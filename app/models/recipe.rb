@@ -11,9 +11,9 @@ class Recipe
   format :json
 
   def self.for term
-  	puts @key_value
-  	puts @hostport
-  	puts "#{@hostport}/api"
+  	#puts @key_value
+  	#puts @hostport
+  	#puts "#{@hostport}/api"
     get("/search", query: { q: term})["recipes"]
   end
 
