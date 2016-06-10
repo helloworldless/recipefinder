@@ -1,0 +1,31 @@
+<!--<h1>Recipes#index</h1>
+#<p>Find me in app/views/recipes/index.html.erb</p>-->
+
+<h1>Searching for <%= @input %>...</h1>
+
+<% if @input.nil? %>
+
+<p>No results found for <%= @input %>. Try again.</p>
+
+<% else %>
+
+	<table border = "1">
+		<th>Image</th>
+		<th>Title</th>
+		<th>Rank</th>
+
+		<% @recipes.each do |recipe| %>
+
+			<tr>
+				<td><%= link_to( image_tag(recipe["image_url"], size: "100"), recipe["source_url"] )%></td>
+				<td><%= link_to( sanitize(recipe["title"]), recipe["source_url"] ) %></td>
+				<td><%= recipe["social_rank"] %></td>
+
+			</tr>
+
+		<% end %>
+
+
+	</table>
+
+<% end %>
